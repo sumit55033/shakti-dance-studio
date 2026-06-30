@@ -20,8 +20,7 @@ course: document.getElementById("course").value
 
 try{
 
-const response = await fetch(
-"http://localhost:5000/trial",
+const response = await fetch("https://shakti-dance-studio.onrender.com/trial");
 {
 method:"POST",
 headers:{

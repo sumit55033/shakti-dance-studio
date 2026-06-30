@@ -6,7 +6,7 @@ if(localStorage.getItem("adminLoggedIn") !== "true"){
 
 async function loadData() {
 
-    const response = await fetch("http://localhost:5000/trials");
+    const response = await fetch("https://shakti-dance-studio.onrender.com/trials");
 
     const data = await response.json();
 
@@ -82,7 +82,7 @@ async function deleteTrial(id){
     if(confirm("Delete this booking?")){
 
         await fetch(
-            "http://localhost:5000/trial/" + id,
+            "https://shakti-dance-studio.onrender.com/trial/" + id,
             {
                 method: "DELETE"
             }
