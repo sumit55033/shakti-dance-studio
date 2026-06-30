@@ -1,49 +1,52 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-const form = document.getElementById("trialForm");
+    const form = document.getElementById("trialForm");
 
-if(form){
+    if (form) {
 
-form.addEventListener("submit", async (e) => {
+        form.addEventListener("submit", async (e) => {
 
-e.preventDefault();
+            e.preventDefault();
 
-const data = {
+            const data = {
 
-name: document.getElementById("name").value,
+                name: document.getElementById("name").value,
 
-mobile: document.getElementById("mobile").value,
+                mobile: document.getElementById("mobile").value,
 
-course: document.getElementById("course").value
+                course: document.getElementById("course").value
 
-};
+            };
 
-try{
+            try {
 
-const response = await fetch("https://shakti-dance-studio.onrender.com/trial");
-{
-method:"POST",
-headers:{
-"Content-Type":"application/json"
-},
-body:JSON.stringify(data)
-}
-);
+                const response = await fetch(
+                    "https://shakti-dance-studio.onrender.com/trial",
+                    {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify(data)
+                    }
+                );
 
-const result = await response.json();
+                const result = await response.json();
 
-alert(result.message);
+                alert(result.message);
 
-form.reset();
+                form.reset();
 
-}catch(error){
+            } catch (error) {
 
-alert("Server Error. Backend Running Hai Ya Nahi Check Karo.");
+                alert("Server Error. Backend Running Hai Ya Nahi Check Karo.");
 
-}
+                console.log(error);
 
-});
+            }
 
-}
+        });
+
+    }
 
 });
